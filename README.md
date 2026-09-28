@@ -35,7 +35,7 @@ Shift + F10
 2. Simpan file `bypass.cmd` di USB instalasi Windows. Di Command Prompt, ketik satu perintah berikut. Ganti `D:` dengan huruf drive USB jika berbeda:
 
 ```cmd
-D:\bypass
+D:/bypass.cmd
 ```
 
 Skrip akan membuat kedua nilai registry secara otomatis dan menampilkan `SUCCESS` jika berhasil. Skrip tidak memerlukan `curl` atau koneksi internet.
