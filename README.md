@@ -1,43 +1,77 @@
-# Windows 11 TPM + Secure Boot Bypass
+# Bypass TPM 2.0 dan Secure Boot Windows 11
 
-A minimal Windows Setup script for bypassing the Windows 11 TPM 2.0 and Secure Boot requirement checks.
+Script sederhana untuk Windows Setup yang digunakan untuk melewati pemeriksaan persyaratan **TPM 2.0** dan **Secure Boot** pada instalasi Windows 11.
 
-## What it changes
+## Apa yang Diubah?
 
-The script creates:
+Script membuat registry key berikut:
 
 `HKLM\SYSTEM\Setup\LabConfig`
 
-and sets:
+Kemudian menambahkan:
 
-- `BypassTPMCheck` = `1`
-- `BypassSecureBootCheck` = `1`
+* `BypassTPMCheck` = `1`
+* `BypassSecureBootCheck` = `1`
 
-It does not modify partitions, bootloaders, personal files, or Windows installation files.
+Script ini **tidak mengubah**:
 
-## Usage from Windows 11 Setup
+* Partisi disk
+* Bootloader
+* File pribadi
+* File instalasi Windows
+* Hardware TPM
+* Pengaturan Secure Boot pada firmware/BIOS
 
-At the Windows Setup requirement screen:
+## Cara Menggunakan dari Windows 11 Setup
 
-1. Press `Shift + F10`.
-2. Run the command below, replacing `USERNAME` with your GitHub username:
+Ketika muncul pesan bahwa PC tidak memenuhi persyaratan Windows 11:
+
+1. Tekan:
+
+```text
+Shift + F10
+```
+
+2. Jalankan command berikut. Ganti `USERNAME` dengan username GitHub pemilik repository:
 
 ```cmd
 curl -L https://raw.githubusercontent.com/USERNAME/windows-11-bypass/main/win11-bypass.cmd -o bypass.cmd && bypass.cmd
 ```
 
-3. Close the script.
-4. Close Command Prompt.
-5. Return to Windows Setup and retry.
+3. Tunggu sampai muncul pesan bahwa proses bypass berhasil.
 
-## One-command version
+4. Tutup script.
 
-After the repository is published:
+5. Tutup Command Prompt.
+
+6. Kembali ke Windows Setup dan coba lanjutkan instalasi kembali.
+
+## Versi Satu Command
+
+Jika repository sudah dipublikasikan di GitHub, script dapat dijalankan langsung tanpa menyimpan file terlebih dahulu:
 
 ```cmd
 curl -L https://raw.githubusercontent.com/USERNAME/windows-11-bypass/main/win11-bypass.cmd | cmd
 ```
 
-## Scope
+Ganti `USERNAME` dengan username GitHub pemilik repository.
 
-This repository intentionally contains only a registry-based Windows Setup bypass. It does not attempt to disable Secure Boot in firmware or modify TPM hardware.
+## Lingkup Repository
+
+Repository ini sengaja hanya berisi script berbasis **Windows Registry** untuk melewati pemeriksaan persyaratan TPM 2.0 dan Secure Boot pada Windows Setup.
+
+Script ini **tidak mencoba** untuk:
+
+* Menonaktifkan Secure Boot pada firmware/BIOS
+* Memodifikasi hardware TPM
+* Mengubah partisi disk
+* Mengubah bootloader
+* Menghapus atau mengubah file pribadi pengguna
+
+Penggunaan bypass ini dapat membuat konfigurasi Windows 11 tidak memenuhi persyaratan hardware resmi Microsoft. Gunakan dengan memahami konsekuensinya, terutama pada dukungan dan kompatibilitas sistem.
+
+## Catatan
+
+Script ini dibuat untuk penggunaan pada sistem atau virtual machine yang pengguna memiliki izin untuk mengelolanya.
+
+Selalu periksa isi script sebelum menjalankannya dari sumber yang tidak dikenal.
