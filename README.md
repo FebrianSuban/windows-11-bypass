@@ -32,24 +32,18 @@ Ketika muncul pesan bahwa PC tidak memenuhi persyaratan Windows 11:
 Shift + F10
 ```
 
-2. Simpan file `bypass.cmd` di root USB instalasi Windows. Huruf drive USB di Windows Setup mungkin berbeda dari `D:`. Untuk mencari file, jalankan:
+2. Sebelum memulai instalasi, simpan `bypass.cmd` di root USB instalasi Windows. Di Command Prompt Windows Setup, jalankan perintah ini untuk mencari dan menjalankan file di drive USB:
 
 ```cmd
-for %D in (C D E F G H I J K L M N O P Q R S T U V W X Y Z) do @if exist %D:\bypass.cmd echo Found on %D:
+for %D in (D E F G H I J K L M N O P Q R S T U V W Y Z) do @if exist %D:\bypass.cmd call %D:\bypass.cmd
 ```
 
-Gunakan huruf yang ditampilkan untuk menjalankan script. Contohnya, jika hasilnya `Found on E:`, jalankan:
-
-```cmd
-E:\bypass.cmd
-```
-
-Jika tidak ada drive yang ditampilkan, pastikan file berada di root USB dan coba huruf drive lain atau lokasi file yang benar. Skrip akan membuat kedua nilai registry secara otomatis dan menampilkan `SUCCESS` jika berhasil. Skrip tidak memerlukan `curl` atau koneksi internet.
+Perintah ini tidak memerlukan `curl` atau koneksi internet. Jika tidak berjalan, pastikan file berada langsung di root USB dan huruf drive USB termasuk dalam daftar di atas. Script akan menampilkan `SUCCESS` jika berhasil.
 
 3. Tutup Command Prompt.
 4. Kembali ke Windows Setup dan coba lanjutkan instalasi.
 
-Pastikan file `bypass.cmd` berada di root USB sebelum memulai instalasi. Cara ini juga tidak memerlukan `curl`.
+Pastikan file `bypass.cmd` berada di root USB sebelum memulai instalasi.
 
 ## Lingkup Repository
 
