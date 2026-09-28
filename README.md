@@ -35,7 +35,7 @@ Shift + F10
 2. Sebelum memulai instalasi, simpan `bypass.cmd` di root USB instalasi Windows. Di Command Prompt Windows Setup, jalankan perintah ini untuk mencari dan menjalankan file di drive USB:
 
 ```cmd
-for %D in (D E F G H I J K L M N O P Q R S T U V W Y Z) do @if exist %D:\bypass.cmd call %D:\bypass.cmd
+for %D in (D E F G H I J K L M N O P Q R S T U V W Y Z) do @if exist %D:/bypass.cmd call %D:/bypass.cmd
 ```
 
 Perintah ini tidak memerlukan `curl` atau koneksi internet. Jika tidak berjalan, pastikan file berada langsung di root USB dan huruf drive USB termasuk dalam daftar di atas. Script akan menampilkan `SUCCESS` jika berhasil.
