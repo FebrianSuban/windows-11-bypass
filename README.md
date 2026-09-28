@@ -32,25 +32,18 @@ Ketika muncul pesan bahwa PC tidak memenuhi persyaratan Windows 11:
 Shift + F10
 ```
 
-2. Ketik perintah berikut satu per satu di Command Prompt:
+2. Simpan file `bypass.cmd` di USB instalasi Windows. Di Command Prompt, ketik satu perintah berikut. Ganti `D:` dengan huruf drive USB jika berbeda:
 
 ```cmd
-reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassTPMCheck /t REG_DWORD /d 1 /f
-reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassSecureBootCheck /t REG_DWORD /d 1 /f
+D:\bypass
 ```
 
-Perintah tersebut tidak memerlukan `curl` atau koneksi internet. Untuk memastikan kedua nilai sudah dibuat, jalankan:
-
-```cmd
-reg query "HKLM\SYSTEM\Setup\LabConfig"
-```
-
-Pastikan hasilnya menampilkan `BypassTPMCheck` dan `BypassSecureBootCheck`, keduanya bernilai `0x1`.
+Skrip akan membuat kedua nilai registry secara otomatis dan menampilkan `SUCCESS` jika berhasil. Skrip tidak memerlukan `curl` atau koneksi internet.
 
 3. Tutup Command Prompt.
 4. Kembali ke Windows Setup dan coba lanjutkan instalasi.
 
-Jika ingin menjalankan file `win11-bypass.cmd`, salin file tersebut ke USB sebelum memulai instalasi, lalu jalankan dari Command Prompt dengan path drive USB yang sesuai. Cara ini juga tidak memerlukan `curl`.
+Pastikan file `bypass.cmd` berada di root USB sebelum memulai instalasi. Cara ini juga tidak memerlukan `curl`.
 
 ## Lingkup Repository
 
