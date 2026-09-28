@@ -22,7 +22,7 @@ Script ini **tidak mengubah**:
 * Hardware TPM
 * Pengaturan Secure Boot pada firmware/BIOS
 
-## Cara Menggunakan dari Windows 11 Setup
+## Cara Menggunakan
 
 Ketika muncul pesan bahwa PC tidak memenuhi persyaratan Windows 11:
 
@@ -32,33 +32,19 @@ Ketika muncul pesan bahwa PC tidak memenuhi persyaratan Windows 11:
 Shift + F10
 ```
 
-2. Jalankan command berikut. Ganti `USERNAME` dengan username GitHub pemilik repository:
+2. Jalankan satu command berikut:
 
 ```cmd
-curl -L https://raw.githubusercontent.com/USERNAME/windows-11-bypass/main/win11-bypass.cmd -o bypass.cmd && bypass.cmd
+curl -L https://raw.githubusercontent.com/FebrianSuban/windows-11-bypass/main/win11-bypass.cmd | cmd
 ```
 
 3. Tunggu sampai muncul pesan bahwa proses bypass berhasil.
-
-4. Tutup script.
-
-5. Tutup Command Prompt.
-
-6. Kembali ke Windows Setup dan coba lanjutkan instalasi kembali.
-
-## Versi Satu Command
-
-Jika repository sudah dipublikasikan di GitHub, script dapat dijalankan langsung tanpa menyimpan file terlebih dahulu:
-
-```cmd
-curl -L https://raw.githubusercontent.com/USERNAME/windows-11-bypass/main/win11-bypass.cmd | cmd
-```
-
-Ganti `USERNAME` dengan username GitHub pemilik repository.
+4. Tutup Command Prompt.
+5. Kembali ke Windows Setup dan coba lanjutkan instalasi.
 
 ## Lingkup Repository
 
-Repository ini sengaja hanya berisi script berbasis **Windows Registry** untuk melewati pemeriksaan persyaratan TPM 2.0 dan Secure Boot pada Windows Setup.
+Repository ini hanya berisi script berbasis **Windows Registry** untuk melewati pemeriksaan persyaratan TPM 2.0 dan Secure Boot pada Windows Setup.
 
 Script ini **tidak mencoba** untuk:
 
